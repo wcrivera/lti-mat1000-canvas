@@ -23,6 +23,7 @@ export const obtenerCurso = (course_id: string) => {
       }
     } catch (error) {
       console.log(error)
+      dispatch(endLoadingCurso());
       const payload: { ok: boolean, msg: string } = { ok: false, msg: 'Estamos teniendo problemas, vuelva a intentarlo más tarde' }
       return payload
     }

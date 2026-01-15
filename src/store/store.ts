@@ -3,6 +3,17 @@ import { configureStore, ThunkAction, Action } from "@reduxjs/toolkit";
 import { usuarioSlice } from "./slices/usuario";
 
 import { cursoSlice } from "./slices/curso/cursoSlice";
+import { capituloSlice } from "./slices/capitulo";
+import { claseSlice } from "./slices/clase";
+import { temaSlice } from "./slices/tema";
+
+
+
+
+
+
+
+
 import { moduloSlice } from "./slices/modulo";
 import { itemSlice } from "./slices/item/itemSlice";
 import { paginaSlice } from "./slices/pagina/paginaSlice";
@@ -42,11 +53,22 @@ import { socketSlice } from "./slices/socket/socketSlice";
 export const store = configureStore({
   reducer: {
     usuario: usuarioSlice.reducer,
+    
     curso: cursoSlice.reducer,
+    capitulo: capituloSlice.reducer,
+    clase: claseSlice.reducer,
+    tema: temaSlice.reducer,
+
+
+
+
+
+
+    
     modulo: moduloSlice.reducer,
     item: itemSlice.reducer,
     pagina: paginaSlice.reducer,
-
+    
 
 
     matricula: matriculaSlice.reducer,

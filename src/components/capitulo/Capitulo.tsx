@@ -1,34 +1,30 @@
-import { Book, GraduationCap, Pencil, Users } from "lucide-react"
+import { GraduationCap, Pencil, Users } from "lucide-react"
 import { Tabs } from "../ui/Tabs"
 import { useDispatch, useSelector } from "react-redux";
 import { AppDispatch, RootState } from "../../store";
 import Clases from "../clases/Clases";
 import Ayudantias from "../ayudantia/Ayudantias";
+import { useEffect } from "react";
+import { obtenerTemasCapitulo } from "../../store/slices/tema";
 
 const Capitulo = () => {
 
     const dispatch = useDispatch<AppDispatch>();
 
-    const { modulo, modulos } = useSelector(
-        (state: RootState) => state.modulo
+    const { capitulo } = useSelector(
+        (state: RootState) => state.capitulo
     );
 
-    const { usuario } = useSelector(
-        (state: RootState) => state.usuario
-    );
-
-    const { curso } = useSelector(
-        (state: RootState) => state.curso
-    );
-
-    const modulo_clase = modulos[modulos.indexOf(modulo)];
-    
-    const modulo_ejercicio = modulos[modulos.indexOf(modulo) + 2];
+    useEffect(() => {
+        if (capitulo.id) {
+            dispatch(obtenerTemasCapitulo(capitulo.id));
+        }
+    }, [dispatch, capitulo.id])
 
     return (
         <div className="min-h-screen p-1">
             <Tabs
-                titulo={modulo.name}
+                titulo={capitulo.nombre}
                 tabs={[
                     {
                         id: 'clases',

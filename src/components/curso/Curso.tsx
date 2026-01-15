@@ -41,7 +41,7 @@ const Curso = () => {
     return (
         <div className="min-h-screen p-1">
             <Tabs
-                titulo={curso.name}
+                titulo={curso.nombre}
                 tabs={[
                     {
                         id: 'capitulos',
